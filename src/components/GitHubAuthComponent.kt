@@ -30,15 +30,15 @@ class GitHubAuthComponent : RComponent<GitHubAuthProps, GitHubAuthState>() {
                     h3("card-title") { +"GitHub Credentials" }
                     div("form-row") {
                         div("form-group col-md-5") {
-                            label { +"Username"; attrs.htmlFor = "input-username" }
-                            input(name = "input-username", classes = "form-control") {
+                            label { +"Username" }
+                            input(classes = "form-control") {
                                 attrs.id = "input-username"
                                 attrs.placeholder = "GitHub username..."
                             }
                         }
                         div("form-group col-md-5") {
-                            label { +"Password"; attrs.htmlFor = "input-password" }
-                            input(name = "input-password", classes = "form-control", type = InputType.password) {
+                            label { +"Password" }
+                            input(classes = "form-control", type = InputType.password) {
                                 attrs.id = "input-password"
                                 attrs.placeholder = "GitHub password..."
                             }

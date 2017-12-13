@@ -39,7 +39,7 @@ class GitHubOrgComponent : RComponent<GitHubOrgProps, GitHubOrgState>() {
                                 }
                             }
                         }
-                        input(name = "input-organization", classes = "form-control") {
+                        input(classes = "form-control") {
                             attrs.id = "input-organization"
                             attrs.placeholder = "GitHub Organization..."
                         }
