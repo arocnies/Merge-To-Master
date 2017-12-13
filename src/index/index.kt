@@ -1,11 +1,9 @@
 package index
 
 import components.githubAuth
+import components.githubOrg
 import kotlinext.js.invoke
 import kotlinext.js.require
-import kotlinx.html.BUTTON
-import kotlinx.html.ButtonType
-import kotlinx.html.InputType
 import react.RBuilder
 import react.dom.*
 import kotlin.browser.document
@@ -22,31 +20,13 @@ fun main(args: Array<String>) {
 
         div("container") {
             githubAuth { println("User: $username, Pass: $password") }
-            organizationPicker()
+            githubOrg(stupOrgs) { println("Org: $input") }
             branchPicker()
 
             hr {}
 
             stupRepos.forEach {
                 repoList(it)
-            }
-        }
-    }
-}
-
-fun RBuilder.organizationPicker() {
-    form {
-        div("card bg-light mb-3") {
-            div("card-body") {
-                h3("card-title") { +"Organizations" }
-                div("input-group") {
-                    span("input-group-btn") {
-                        button(classes = "btn btn-primary") { +"Add" }
-                    }
-                    input(name = "org-input", classes = "form-control") {
-                        attrs.placeholder = "GitHub Organization..."
-                    }
-                }
             }
         }
     }
@@ -91,5 +71,7 @@ fun RBuilder.repoList(repo: Repo) {
 }
 
 val stupRepos = listOf(Repo("omar-avro"), Repo("ossim-ci"), Repo("omar-scdf-stager"))
+val stupOrgs = listOf(Organization("ossimlabs"), Organization("RadiantSolutionsTechnologies"))
 
 data class Repo(val name: String)
+data class Organization(val name: String)

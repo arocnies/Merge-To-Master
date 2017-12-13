@@ -16,11 +16,12 @@ import kotlin.browser.document
 interface GitHubAuthProps : RProps {
     var onClickAuthButton: (GitHubAuthComponent.(Event) -> Unit)?
 }
+
 interface GitHubAuthState : RState
 
 class GitHubAuthComponent : RComponent<GitHubAuthProps, GitHubAuthState>() {
-    val username: String get() = (document.getElementById("input-username") as? HTMLInputElement)?.value ?: ""
-    val password: String get() = (document.getElementById("input-password") as? HTMLInputElement)?.value ?: ""
+    val username: String get() = (document.getElementById("input-username") as HTMLInputElement).value
+    val password: String get() = (document.getElementById("input-password") as HTMLInputElement).value
 
     override fun RBuilder.render() {
         form {
